@@ -4,7 +4,7 @@ module Gelfd2
       def parse(data)
         header = data[0..1]
         case header
-        when ZLIB_MAGIC
+        when ZLIB_MAGIC_0, ZLIB_MAGIC_1, ZLIB_MAGIC_2, ZLIB_MAGIC_3
           ZlibParser.parse(data)
         when CHUNKED_MAGIC
           ChunkedParser.parse(data)
